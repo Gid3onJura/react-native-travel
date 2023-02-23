@@ -1,15 +1,20 @@
 import { View, Text, Image, ScrollView, TouchableOpacity, ActivityIndicator } from "react-native"
-import React, { useLayoutEffect, useState } from "react"
+import React, { useEffect, useLayoutEffect, useState } from "react"
 import { useNavigation } from "@react-navigation/native"
 import { SafeAreaView } from "react-native-safe-area-context"
+import uuid from "react-native-uuid"
 import { Avatar, Hotels, Restaurants, Attractions, NotFound } from "../assets"
 import MenuContainer from "../components/MenuContainer"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import ItemCardContainer from "../components/ItemCardContainer"
+import { getPlacesData } from "../api"
 //import CustomSearchBar from "../components/CustomSearchBar"
 
 export default function DiscoverScreen() {
   const navigation = useNavigation()
+  const [type, setType] = useState("hotels")
+  const [isLoading, setIsLoading] = useState(false)
+  const [mainData, setMainData] = useState([])
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -17,9 +22,15 @@ export default function DiscoverScreen() {
     })
   }, [])
 
-  const [type, setType] = useState("hotels")
-  const [isLoading, setIsLoading] = useState(false)
-  const [mainData, setMainData] = useState([])
+  useEffect(() => {
+    setIsLoading(true)
+    getPlacesData().then((data) => {
+      setMainData(data)
+      setInterval(() => {
+        setIsLoading(false)
+      }, 2000)
+    })
+  }, [])
 
   return (
     <SafeAreaView className="bg-white flex-1 relative">
@@ -33,7 +44,6 @@ export default function DiscoverScreen() {
           <Image source={Avatar} className="w-full h-full rounded-md object-cover" />
         </View>
       </View>
-
       {/** Menu Container */}
       {isLoading ? (
         <View className="flex-1 items-center justify-center">
@@ -71,24 +81,20 @@ export default function DiscoverScreen() {
             <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
               {mainData?.length > 0 ? (
                 <>
-                  <ItemCardContainer
-                    key={"101"}
-                    imageSrc={"https://cdn.pixabay.com/photo/2020/03/31/11/59/sunrise-4987384_960_720.jpg"}
-                    title="Something"
-                    location="Slowenien"
-                  />
-                  <ItemCardContainer
-                    key={"102"}
-                    imageSrc={"https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874_960_720.jpg"}
-                    title="Sample"
-                    location="Slowenien"
-                  />
+                  {mainData?.map((data, i) => (
+                    <ItemCardContainer
+                      key={uuid.v4()}
+                      imageSrc={data?.thumbnail}
+                      title={data?.title}
+                      location={data?.location}
+                    />
+                  ))}
                 </>
               ) : (
                 <>
                   <View className="w-full h-[300px] items-center justify-center space-y-8">
-                    <Image source={NotFound} className="w-32 h-32 object-cover" />
-                    <Text className="text-2xl text-[#428288] font-semibold">Opps...No Data found</Text>
+                    <Image source={NotFound} className="w-10 h-10 object-cover" />
+                    <Text className="text-1xl text-[#428288] font-semibold">Opps...No Data found</Text>
                   </View>
                 </>
               )}

@@ -1,10 +1,16 @@
 import { View, Text, TouchableOpacity, Image } from "react-native"
 import React from "react"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
+import { useNavigation } from "@react-navigation/native"
 
-const ItemCardContainer = ({ imageSrc, title, location }) => {
+const ItemCardContainer = ({ imageSrc, title, location, data }) => {
+  const navigation = useNavigation()
+
   return (
-    <TouchableOpacity className="rounded-md border border-gray-300 space-y-2 px-3 py-2 shadow-md bg-white w-[170px] my-2">
+    <TouchableOpacity
+      onPress={() => navigation.navigate("ItemScreen", { data: data })}
+      className="rounded-md border border-gray-300 space-y-2 px-3 py-2 shadow-md bg-white w-[170px] my-2"
+    >
       <Image
         source={typeof imageSrc === "string" ? { uri: imageSrc } : imageSrc}
         className="w-full h-40 rounded-md object-cover"

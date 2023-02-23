@@ -84,9 +84,10 @@ export default function DiscoverScreen() {
                   {mainData?.map((data, i) => (
                     <ItemCardContainer
                       key={uuid.v4()}
-                      imageSrc={data?.thumbnail}
+                      imageSrc={data?.images[0]}
                       title={data?.title}
                       location={data?.location}
+                      data={data}
                     />
                   ))}
                 </>

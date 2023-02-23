@@ -1,6 +1,9 @@
-export { default as HeroImage } from "./hero.png";
-export { default as Avatar } from "./avatar.png";
-export { default as Hotels } from "./hotel.png";
-export { default as Attractions } from "./attraction.png";
-export { default as Restaurants } from "./restaurants.png";
-export { default as NotFound } from "./NotFound.png";
+export { default as HeroImage } from "./hero.png"
+export { default as Avatar } from "./avatar.png"
+export { default as Hotels } from "./hotel.png"
+export { default as Attractions } from "./attraction.png"
+export { default as Restaurants } from "./restaurants.png"
+export { default as NotFound } from "./NotFound.png"
+export { default as defaultHotelImage } from "./default-image-hotel.jpg"
+export { default as defaultAttractionImage } from "./default-image-attraction.jpg"
+export { default as defaultRestaurantImage } from "./default-image-restaurant.jpg"

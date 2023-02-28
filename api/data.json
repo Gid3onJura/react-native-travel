@@ -7,21 +7,29 @@
     "title": "Lorem ipsum",
     "description": "Hotel - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
     "images": ["https://cdn.pixabay.com/photo/2020/03/31/11/59/sunrise-4987384_960_720.jpg"],
-    "prizeLevel": "$$$"
+    "prizeLevel": "$$$",
+    "coordinates": {
+      "lat": 46.074489654944095,
+      "lng": 14.502678528517809
+    }
   },
   {
     "entryType": "attractions",
-    "day": 1,
+    "day": 2,
     "datetime": "2022-10-02",
     "location": "Slowenien",
     "title": "Lorem ipsum",
     "description": "Sehenswürdigkeit - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
     "images": ["https://cdn.pixabay.com/photo/2020/03/31/11/59/sunrise-4987384_960_720.jpg"],
-    "prizeLevel": "$"
+    "prizeLevel": "$",
+    "coordinates": {
+      "lat": 45.79424502568676,
+      "lng": 14.286913077320417
+    }
   },
   {
     "entryType": "restaurants",
-    "day": 1,
+    "day": 3,
     "datetime": "2022-10-02",
     "location": "Slowenien",
     "title": "Lorem ipsum",
@@ -31,7 +39,7 @@
   },
   {
     "entryType": "restaurants",
-    "day": 2,
+    "day": 4,
     "datetime": "2022-10-02",
     "location": "Slowenien",
     "title": "Lorem ipsum",

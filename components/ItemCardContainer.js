@@ -16,7 +16,7 @@ const ItemCardContainer = ({ imageSrc, title, location, data }) => {
         className="w-full h-40 rounded-md object-cover"
       />
       <Text className="text-[#428288] text-[18px] font-bold">
-        {title.length > 14 ? `${title.slice(0, 14)}..` : title}
+        {title.length > 14 ? `${title.slice(0, 14)}..` : title} ({data.day})
       </Text>
       <View className="flex-row items-center space-x-1">
         <FontAwesome name="map-marker" size={20} color="#8597a2" />

@@ -28,7 +28,7 @@ export default function DiscoverScreen() {
       setMainData(data)
       setInterval(() => {
         setIsLoading(false)
-      }, 2000)
+      }, 1000)
     })
   }, [])
 
@@ -84,9 +84,9 @@ export default function DiscoverScreen() {
                   {mainData?.map((data, i) => (
                     <ItemCardContainer
                       key={uuid.v4()}
-                      imageSrc={data?.images[0]}
-                      title={data?.title}
-                      location={data?.location}
+                      imageSrc={data?.images && data?.images[0] ? data?.images[0] : null}
+                      title={data?.title ? data?.title : ""}
+                      location={data?.location ? data?.location : null}
                       data={data}
                     />
                   ))}

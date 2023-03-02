@@ -19,7 +19,7 @@ const searchForQuery = (searchInput, type) => {
         entry.location.toLowerCase().includes(searchInput.toLowerCase()) ||
         entry.title.toLowerCase().includes(searchInput.toLowerCase()) ||
         entry.description.toLowerCase().includes(searchInput.toLowerCase()) ||
-        entry.prizeLevel.toLowerCase().includes(searchInput.toLowerCase())
+        entry.prizeLevel === searchInput
       ) {
         return entry
       }

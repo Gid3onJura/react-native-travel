@@ -8,13 +8,15 @@ import MenuContainer from "../components/MenuContainer"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import ItemCardContainer from "../components/ItemCardContainer"
 import { getPlacesData } from "../api"
+import CustomSearchBar from "../components/CustomSearchBar"
 //import CustomSearchBar from "../components/CustomSearchBar"
 
 export default function DiscoverScreen() {
   const navigation = useNavigation()
-  const [type, setType] = useState("hotels")
+  const [type, setType] = useState("attractions")
   const [isLoading, setIsLoading] = useState(false)
   const [mainData, setMainData] = useState([])
+  const [searchQuery, setSearchQuery] = useState("")
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -24,13 +26,17 @@ export default function DiscoverScreen() {
 
   useEffect(() => {
     setIsLoading(true)
-    getPlacesData().then((data) => {
+    getPlacesData(searchQuery, type).then((data) => {
       setMainData(data)
       setInterval(() => {
         setIsLoading(false)
       }, 1000)
     })
-  }, [])
+  }, [searchQuery, type])
+
+  const onChangeSearch = (searchQuery) => {
+    setSearchQuery(searchQuery)
+  }
 
   return (
     <SafeAreaView className="bg-white flex-1 relative">
@@ -44,40 +50,34 @@ export default function DiscoverScreen() {
           <Image source={Avatar} className="w-full h-full rounded-md object-cover" />
         </View>
       </View>
+
+      {/* Search Bar */}
+      <View>
+        <CustomSearchBar placeholder={"Suche"} onChangeText={onChangeSearch} value={searchQuery} />
+      </View>
+
       {/** Menu Container */}
-      {isLoading ? (
-        <View className="flex-1 items-center justify-center">
-          <ActivityIndicator size="large" color="#0b646b" />
+      <ScrollView>
+        <View className="flex-row items-center justify-between px-8 mt-8">
+          <MenuContainer key={"hotels"} title="Hotels" imageSrc={Hotels} type={type} setType={setType} />
+          <MenuContainer key={"attractions"} title="Attractions" imageSrc={Attractions} type={type} setType={setType} />
+          <MenuContainer key={"restaurants"} title="Restaurants" imageSrc={Restaurants} type={type} setType={setType} />
         </View>
-      ) : (
-        <ScrollView>
-          <View className="flex-row items-center justify-between px-8 mt-8">
-            <MenuContainer key={"hotels"} title="Hotels" imageSrc={Hotels} type={type} setType={setType} />
-            <MenuContainer
-              key={"attractions"}
-              title="Attractions"
-              imageSrc={Attractions}
-              type={type}
-              setType={setType}
-            />
-            <MenuContainer
-              key={"restaurants"}
-              title="Restaurants"
-              imageSrc={Restaurants}
-              type={type}
-              setType={setType}
-            />
+
+        <View>
+          <View className="flex-row items-center justify-between px-4 mt-8">
+            <Text className="text-[#2c7379] text-[28px] font-bold">Tips</Text>
+            <TouchableOpacity className="flex-row items-center justify-center space-x-2">
+              <Text className="text-[#a0c4c7] text-[20px] font-bold">Explore</Text>
+              <FontAwesome name="long-arrow-right" size={24} color="#a0c4c7" />
+            </TouchableOpacity>
           </View>
 
-          <View>
-            <View className="flex-row items-center justify-between px-4 mt-8">
-              <Text className="text-[#2c7379] text-[28px] font-bold">History</Text>
-              <TouchableOpacity className="flex-row items-center justify-center space-x-2">
-                <Text className="text-[#a0c4c7] text-[20px] font-bold">Explore</Text>
-                <FontAwesome name="long-arrow-right" size={24} color="#a0c4c7" />
-              </TouchableOpacity>
+          {isLoading ? (
+            <View className="flex-1 items-center justify-center">
+              <ActivityIndicator size="large" color="#0b646b" />
             </View>
-
+          ) : (
             <View className="px-4 mt-8 flex-row items-center justify-evenly flex-wrap">
               {mainData?.length > 0 ? (
                 <>
@@ -100,9 +100,9 @@ export default function DiscoverScreen() {
                 </>
               )}
             </View>
-          </View>
-        </ScrollView>
-      )}
+          )}
+        </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }

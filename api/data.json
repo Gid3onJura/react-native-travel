@@ -18,7 +18,7 @@
     "day": 2,
     "datetime": "2022-10-02",
     "location": "Slowenien",
-    "title": "Lorem ipsum",
+    "title": "Eishöhlen",
     "description": "Sehenswürdigkeit - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
     "images": ["https://cdn.pixabay.com/photo/2020/03/31/11/59/sunrise-4987384_960_720.jpg"],
     "prizeLevel": "$",
@@ -36,6 +36,56 @@
     "description": "Essen - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
     "images": ["https://cdn.pixabay.com/photo/2020/03/31/11/59/sunrise-4987384_960_720.jpg"],
     "prizeLevel": "$$"
+  },
+  {
+    "entryType": "restaurants",
+    "day": 4,
+    "datetime": "2022-10-02",
+    "location": "Slowenien",
+    "title": "Lorem ipsum",
+    "description": "Restaurant - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+    "images": ["https://cdn.pixabay.com/photo/2020/03/31/11/59/sunrise-4987384_960_720.jpg"],
+    "prizeLevel": "$$$"
+  },
+  {
+    "entryType": "restaurants",
+    "day": 4,
+    "datetime": "2022-10-02",
+    "location": "Slowenien",
+    "title": "Lorem ipsum",
+    "description": "Restaurant - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+    "images": ["https://cdn.pixabay.com/photo/2020/03/31/11/59/sunrise-4987384_960_720.jpg"],
+    "prizeLevel": "$$$"
+  },
+  {
+    "entryType": "restaurants",
+    "day": 4,
+    "datetime": "2022-10-02",
+    "location": "Slowenien",
+    "title": "Lorem ipsum",
+    "description": "Restaurant - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+    "images": ["https://cdn.pixabay.com/photo/2020/03/31/11/59/sunrise-4987384_960_720.jpg"],
+    "prizeLevel": "$$$"
+  },
+  {
+    "entryType": "restaurants",
+    "day": 4,
+    "datetime": "2022-10-02",
+    "location": "Slowenien",
+    "title": "Lorem ipsum",
+    "description": "Restaurant - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+    "images": ["https://cdn.pixabay.com/photo/2020/03/31/11/59/sunrise-4987384_960_720.jpg"],
+    "prizeLevel": "$$$"
+  },
+  {
+    "entryType": "restaurants",
+    "day": 4,
+    "datetime": "2022-10-02",
+    "location": "Slowenien",
+    "title": "Lorem ipsum",
+    "description": "Restaurant - Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+    "images": ["https://cdn.pixabay.com/photo/2020/03/31/11/59/sunrise-4987384_960_720.jpg"],
+    "prizeLevel": "$$$"
   },
   {
     "entryType": "restaurants",

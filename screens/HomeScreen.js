@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { HeroImage } from "../assets"
 import * as Animatable from "react-native-animatable"
+import Entypo from "react-native-vector-icons/Entypo"
 
 export default function HomeScreen() {
   const navigation = useNavigation()
@@ -15,34 +16,18 @@ export default function HomeScreen() {
   }, [])
 
   return (
-    <SafeAreaView className="bg-white flex-1 relative">
+    <SafeAreaView className="bg-[#00bcc9] flex-1 relative">
+      <Image source={HeroImage} className="absolute mt-11 w-full h-full object-contain" />
+
       {/** First Section */}
-      <View className="flex-row px-6 mt-8 items-center space-x-2">
-        <View className="w-16 h-16 bg-black rounded-full items-center justify-center">
-          <Text className="text-[#00bcc9] text-3xl font-semibold">Go</Text>
-        </View>
-        <Text className="text-[#2a2b4b] text-3xl font-semibold">Travel</Text>
+      <View className="px-6 mt-8 space-y-3">
+        <Text className="text-[#3c6072] text-[42px]">Entdecke schöne Momente in</Text>
+        <Text className="text-[#00bcc9] text-[38px] font-bold">Slowenien</Text>
+        <Text className="text-[#3c6072] text-base mb-16">Ein kleiner Reisebericht</Text>
       </View>
 
       {/** Second Section */}
-      <View className="px-6 mt-8 space-y-3">
-        <Text className="text-[#3c6072] text-[42px]">Enjoy the trip with</Text>
-        <Text className="text-[#00bcc9] text-[38px] font-bold">Good moments</Text>
-        <Text className="text-[#3c6072] text-base mb-16">
-          Duis exercitation consequat Lorem dolore culpa. Minim nulla nisi consequat id Lorem eiusmod
-        </Text>
-      </View>
-
-      {/** Third Section */}
-      <View className="w-[300px] h-[300px] bg-[#00bcc9] rounded-full absolute bottom-[120px] -right-[120px]"></View>
-      <View className="w-[300px] h-[300px] bg-[#e99265] rounded-full absolute -bottom-[100px] -left-[70px]"></View>
       <View className="flex-1 relative items-center justify-center">
-        <Animatable.Image
-          animation="fadeIn"
-          easing="ease-in-out"
-          source={HeroImage}
-          className="w-full h-[500px] object-cover"
-        />
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("Discover")
@@ -55,7 +40,9 @@ export default function HomeScreen() {
             iterationCount="infinite"
             className="w-20 h-20 items-center justify-center rounded-full bg-[#00bcc9]"
           >
-            <Text className="text-gray-50 text-[36px] font-semibold">Go</Text>
+            <View className="pl-2">
+              <Entypo name="controller-play" size={50} color="#3c6072" />
+            </View>
           </Animatable.View>
         </TouchableOpacity>
       </View>

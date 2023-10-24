@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, ScrollView, Image, TouchableOpacity, Platform, Linking } from "react-native"
 import React, { useLayoutEffect } from "react"
 import { useNavigation } from "@react-navigation/native"
-import { defaultHotelImage, defaultAttractionImage, defaultRestaurantImage } from "../assets"
+import { defaultHotelImage, defaultAttractionImage, defaultRestaurantImage, defaultRoadImage } from "../assets"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import Entypo from "react-native-vector-icons/Entypo"
@@ -37,6 +37,8 @@ const ItemScreen = ({ route }) => {
       return defaultRestaurantImage
     } else if (data.entryType === "attractions") {
       return defaultAttractionImage
+    } else if (data.entryType === "road") {
+      return defaultRoadImage
     }
     return null
   }
@@ -95,7 +97,7 @@ const ItemScreen = ({ route }) => {
                 <MaterialIcons name="date-range" size={24} color="#d58574" />
               </View>
               <View>
-                <Text className="text-[#515151]">Date Time</Text>
+                <Text className="text-[#515151]">Day {data?.day}</Text>
                 <Text className="text-[#515151]">{data?.datetime}</Text>
               </View>
             </View>
@@ -108,7 +110,7 @@ const ItemScreen = ({ route }) => {
         </View>
 
         {/* Other Details View */}
-        {data?.coordinates && (
+        {data?.coordinates.lat && data?.coordinates.lng && (
           <View className="space-y-2 mt-4 bg-gray-100 rounded-2xl px-4 py-2">
             <View className="items-center flex-row space-x-6">
               <Entypo name="compass" size={24} color="#428288" />

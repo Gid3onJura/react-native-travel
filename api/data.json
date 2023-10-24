@@ -1,5 +1,27 @@
 [
   {
+    "entryType": "road",
+    "day": 1,
+    "datetime": "2022-09-25",
+    "location": "Bayern, Österreich",
+    "title": "Fahrt nach Österreich",
+    "description": "Es geht los! Auf der Fahrt nach Österreich, halt bei Jana. Weiter zum Hotel Forsthof im Alpendorf. Es regnete stark, die Straßenbegrenzung war nur schlecht erkennbar",
+    "images": ["require('../assets/default-image-road.jpg')"],
+    "prizeLevel": "",
+    "coordinates": {}
+  },
+  {
+    "entryType": "hotels",
+    "day": 1,
+    "datetime": "2022-09-25",
+    "location": "Österreich",
+    "title": "Forsthof Alpendorf",
+    "description": "Es geht los! Auf der Fahrt nach Österreich, halt bei Jana. Weiter zum Hotel Forsthof im Alpendorf. Es regnete stark, die Straßenbegrenzung war nur schlecht erkennbar",
+    "images": ["https://cdn.pixabay.com/photo/2020/03/31/11/59/sunrise-4987384_960_720.jpg"],
+    "prizeLevel": "",
+    "coordinates": {}
+  },
+  {
     "entryType": "hotels",
     "day": 1,
     "datetime": "2022-10-02",

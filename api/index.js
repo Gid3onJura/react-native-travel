@@ -1,7 +1,10 @@
 const travelDiary = require("./data.json")
 
+export const getAllPlaces = async () => {
+  return travelDiary
+}
+
 export const getPlacesData = async (searchInput, type) => {
-  console.log(searchInput)
   try {
     const result = searchForQuery(searchInput, type)
     return result
@@ -11,8 +14,6 @@ export const getPlacesData = async (searchInput, type) => {
 }
 
 const searchForQuery = (searchInput, type) => {
-  console.log("input:", searchInput)
-  console.log("type:", type)
   const filteredDiary = travelDiary.filter((entry) => {
     if (entry.entryType === type) {
       if (
@@ -25,6 +26,5 @@ const searchForQuery = (searchInput, type) => {
       }
     }
   })
-  console.log("filteredDiary:", filteredDiary)
   return filteredDiary
 }

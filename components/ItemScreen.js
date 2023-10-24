@@ -10,6 +10,7 @@ const ItemScreen = ({ route }) => {
   const navigation = useNavigation()
 
   const data = route?.params?.data
+  const backpress = route?.params?.backpress
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -41,7 +42,7 @@ const ItemScreen = ({ route }) => {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-white relative">
+    <SafeAreaView className="flex-1 bg-white relative mt-4">
       <ScrollView className="flex-1 px-4 py-6">
         {/* Header Section - Image, Back-Navigation */}
         <View className="relative bg-white shadow-lg">
@@ -49,7 +50,7 @@ const ItemScreen = ({ route }) => {
 
           <View className="absolute flex-row inset-x-0 top-5 justify-between px-6">
             <TouchableOpacity
-              onPress={() => navigation.navigate("Discover")}
+              onPress={() => navigation.navigate(backpress)}
               className="w-10 h-10 rounded-md items-center justify-center bg-white"
             >
               <FontAwesome name="chevron-left" size={24} color="#06B2BE" />

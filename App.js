@@ -6,6 +6,7 @@ import DiscoverScreen from "./screens/Discover"
 import HomeScreen from "./screens/HomeScreen"
 import { SafeAreaProvider } from "react-native-safe-area-context"
 import ItemScreen from "./components/ItemScreen"
+import ExploreScreen from "./components/ExploreScreen"
 
 const Stack = createNativeStackNavigator()
 
@@ -17,6 +18,7 @@ export default function App() {
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Discover" component={DiscoverScreen} />
           <Stack.Screen name="ItemScreen" component={ItemScreen} />
+          <Stack.Screen name="ExploreScreen" component={ExploreScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

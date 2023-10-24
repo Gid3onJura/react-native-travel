@@ -3,12 +3,12 @@ import React from "react"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import { useNavigation } from "@react-navigation/native"
 
-const ItemCardContainer = ({ imageSrc, title, location, data }) => {
+const ItemCardContainer = ({ imageSrc, title, location, data, backpress }) => {
   const navigation = useNavigation()
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("ItemScreen", { data: data })}
+      onPress={() => navigation.navigate("ItemScreen", { data: data, backpress: backpress })}
       className="rounded-md border border-gray-300 space-y-2 px-3 py-2 shadow-md bg-white w-[170px] my-2"
     >
       <Image

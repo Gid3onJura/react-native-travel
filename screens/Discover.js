@@ -67,8 +67,11 @@ export default function DiscoverScreen() {
         <View>
           <View className="flex-row items-center justify-between px-4 mt-8">
             <Text className="text-[#2c7379] text-[28px] font-bold">Tips</Text>
-            <TouchableOpacity className="flex-row items-center justify-center space-x-2">
-              <Text className="text-[#a0c4c7] text-[20px] font-bold">Explore</Text>
+            <TouchableOpacity
+              className="flex-row items-center justify-center space-x-2"
+              onPress={() => navigation.navigate("ExploreScreen")}
+            >
+              <Text className="text-[#a0c4c7] text-[20px] font-bold">Diary</Text>
               <FontAwesome name="long-arrow-right" size={24} color="#a0c4c7" />
             </TouchableOpacity>
           </View>
@@ -88,6 +91,7 @@ export default function DiscoverScreen() {
                       title={data?.title ? data?.title : ""}
                       location={data?.location ? data?.location : null}
                       data={data}
+                      backpress={"Discover"}
                     />
                   ))}
                 </>

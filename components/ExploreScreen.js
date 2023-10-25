@@ -15,7 +15,7 @@ import { defaultHotelImage, defaultAttractionImage, defaultRestaurantImage, defa
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import Entypo from "react-native-vector-icons/Entypo"
-import { getAllPlaces } from "../api"
+import { getAllPlaces, getPlacesData } from "../api"
 import ItemCardContainer from "./ItemCardContainer"
 import { NotFound } from "../assets"
 import uuid from "react-native-uuid"
@@ -42,6 +42,16 @@ const ExploreScreen = () => {
       }, 1000)
     })
   }, [])
+
+  useEffect(() => {
+    setIsLoading(true)
+    getPlacesData(searchQuery).then((data) => {
+      setMainData(data)
+      setInterval(() => {
+        setIsLoading(false)
+      }, 1000)
+    })
+  }, [searchQuery])
 
   const onChangeSearch = (searchQuery) => {
     setSearchQuery(searchQuery)

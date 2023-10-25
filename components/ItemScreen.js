@@ -31,13 +31,20 @@ const ItemScreen = ({ route }) => {
   }
 
   const imageUri = () => {
+    if (data.images && data.images[2]) {
+      return data.images[2]
+    } else if (data.images[1]) {
+      return data.images[1]
+    } else if (data.images[1]) {
+      return data.images[0]
+    }
     if (data.entryType === "hotels") {
       return defaultHotelImage
     } else if (data.entryType === "restaurants") {
       return defaultRestaurantImage
     } else if (data.entryType === "attractions") {
       return defaultAttractionImage
-    } else if (data.entryType === "road") {
+    } else if (data.entryType === "locations") {
       return defaultRoadImage
     }
     return null

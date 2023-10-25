@@ -1,7 +1,9 @@
-const travelDiary = require("./data.json")
+const travelDiary = require("./data.js")
+
+console.log("travelDiary:", travelDiary)
 
 export const getAllPlaces = async () => {
-  return travelDiary
+  return travelDiary.data
 }
 
 export const getPlacesData = async (searchInput, type) => {
@@ -14,7 +16,7 @@ export const getPlacesData = async (searchInput, type) => {
 }
 
 const searchForQuery = (searchInput, type) => {
-  const filteredDiary = travelDiary.filter((entry) => {
+  const filteredDiary = travelDiary.data.filter((entry) => {
     if (entry.entryType === type) {
       if (
         entry.location.toLowerCase().includes(searchInput.toLowerCase()) ||

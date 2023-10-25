@@ -3,7 +3,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react"
 import { useNavigation } from "@react-navigation/native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import uuid from "react-native-uuid"
-import { Avatar, Hotels, Restaurants, Attractions, NotFound } from "../assets"
+import { Avatar, Hotels, Restaurants, Attractions, NotFound, Road } from "../assets"
 import MenuContainer from "../components/MenuContainer"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import ItemCardContainer from "../components/ItemCardContainer"
@@ -58,10 +58,25 @@ export default function DiscoverScreen() {
 
       {/** Menu Container */}
       <ScrollView>
-        <View className="flex-row items-center justify-between px-8 mt-8">
-          <MenuContainer key={"hotels"} title="Hotels" imageSrc={Hotels} type={type} setType={setType} />
-          <MenuContainer key={"attractions"} title="Attractions" imageSrc={Attractions} type={type} setType={setType} />
-          <MenuContainer key={"restaurants"} title="Restaurants" imageSrc={Restaurants} type={type} setType={setType} />
+        <View className="flex-row px-8 mt-8">
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            <MenuContainer key={"hotels"} title="Hotels" imageSrc={Hotels} type={type} setType={setType} />
+            <MenuContainer
+              key={"attractions"}
+              title="Attractions"
+              imageSrc={Attractions}
+              type={type}
+              setType={setType}
+            />
+            <MenuContainer
+              key={"restaurants"}
+              title="Restaurants"
+              imageSrc={Restaurants}
+              type={type}
+              setType={setType}
+            />
+            <MenuContainer key={"locations"} title="Locations" imageSrc={Road} type={type} setType={setType} />
+          </ScrollView>
         </View>
 
         <View>

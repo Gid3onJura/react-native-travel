@@ -3,7 +3,18 @@ import React, { useEffect, useLayoutEffect, useState } from "react"
 import { useNavigation } from "@react-navigation/native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import uuid from "react-native-uuid"
-import { Avatar, Hotels, Restaurants, Attractions, NotFound, Road } from "../assets"
+import {
+  Avatar,
+  Hotels,
+  Restaurants,
+  Attractions,
+  NotFound,
+  Road,
+  defaultHotelImage,
+  defaultAttractionImage,
+  defaultRestaurantImage,
+  defaultRoadImage,
+} from "../assets"
 import MenuContainer from "../components/MenuContainer"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import ItemCardContainer from "../components/ItemCardContainer"
@@ -38,6 +49,21 @@ export default function DiscoverScreen() {
     setSearchQuery(searchQuery)
   }
 
+  const getDefaultImage = (type) => {
+    if (type == "hotels") {
+      return defaultHotelImage
+    }
+    if (type == "attractions") {
+      return defaultAttractionImage
+    }
+    if (type == "restaurants") {
+      return defaultRestaurantImage
+    }
+    if (type == "locations") {
+      return defaultRoadImage
+    }
+  }
+
   return (
     <SafeAreaView className="bg-white flex-1 relative">
       <View className="flex-row items-center justify-between px-8">
@@ -46,9 +72,9 @@ export default function DiscoverScreen() {
           <Text className="text-[36px] text-[#527283]">the beauty today</Text>
         </View>
 
-        <View className="w-12 h-12 bg-gray-400 rounded-md items-center justify-center shadow-lg">
+        {/* <View className="w-12 h-12 bg-gray-400 rounded-md items-center justify-center shadow-lg">
           <Image source={Avatar} className="w-full h-full rounded-md object-cover" />
-        </View>
+        </View> */}
       </View>
 
       {/* Search Bar */}
@@ -102,7 +128,7 @@ export default function DiscoverScreen() {
                   {mainData?.map((data, i) => (
                     <ItemCardContainer
                       key={uuid.v4()}
-                      imageSrc={data?.images && data?.images[0] ? data?.images[0] : null}
+                      imageSrc={data?.images && data?.images[0] ? data?.images[0] : getDefaultImage(data?.entryType)}
                       title={data?.title ? data?.title : ""}
                       location={data?.location ? data?.location : null}
                       data={data}

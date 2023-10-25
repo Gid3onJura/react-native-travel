@@ -11,7 +11,7 @@ import {
 } from "react-native"
 import React, { useLayoutEffect, useState, useEffect } from "react"
 import { useNavigation } from "@react-navigation/native"
-import { defaultHotelImage, defaultAttractionImage, defaultRestaurantImage } from "../assets"
+import { defaultHotelImage, defaultAttractionImage, defaultRestaurantImage, defaultRoadImage } from "../assets"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import Entypo from "react-native-vector-icons/Entypo"
@@ -47,6 +47,21 @@ const ExploreScreen = () => {
     setSearchQuery(searchQuery)
   }
 
+  const getDefaultImage = (type) => {
+    if (type == "hotels") {
+      return defaultHotelImage
+    }
+    if (type == "attractions") {
+      return defaultAttractionImage
+    }
+    if (type == "restaurants") {
+      return defaultRestaurantImage
+    }
+    if (type == "locations") {
+      return defaultRoadImage
+    }
+  }
+
   return (
     <SafeAreaView className="flex-1 bg-white relative mt-4">
       <ScrollView className="flex-1 px-4 py-6">
@@ -66,7 +81,7 @@ const ExploreScreen = () => {
           <CustomSearchBar placeholder={"Suche"} onChangeText={onChangeSearch} value={searchQuery} />
         </View>
 
-        <View>
+        <View className="mb-8">
           <View className="flex-row items-center justify-between px-4 mt-8">
             <Text className="text-[#2c7379] text-[28px] font-bold">Diary</Text>
           </View>
@@ -81,7 +96,7 @@ const ExploreScreen = () => {
                   {mainData?.map((data, i) => (
                     <ItemCardContainer
                       key={uuid.v4()}
-                      imageSrc={data?.images && data?.images[0] ? data?.images[0] : null}
+                      imageSrc={data?.images && data?.images[0] ? data?.images[0] : getDefaultImage(data.entryType)}
                       title={data?.title ? data?.title : ""}
                       location={data?.location ? data?.location : null}
                       data={data}

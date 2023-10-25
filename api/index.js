@@ -1,7 +1,5 @@
 const travelDiary = require("./data.js")
 
-console.log("travelDiary:", travelDiary)
-
 export const getAllPlaces = async () => {
   return travelDiary.data
 }

@@ -16,12 +16,13 @@ const ItemCardContainer = ({ imageSrc, title, location, data, backpress }) => {
         className="w-full h-40 rounded-md object-cover"
       />
       <Text className="text-[#428288] text-[18px] font-bold">
-        {title.length > 14 ? `${title.slice(0, 14)}..` : title} ({data.day})
+        {title.length > 12 ? `${title.slice(0, 12)}..` : title}{" "}
+        {backpress != "Discover" ? <Text>({data.day})</Text> : ""}
       </Text>
       <View className="flex-row items-center space-x-1">
         <FontAwesome name="map-marker" size={20} color="#8597a2" />
         <Text className="text-[#428288] text-[14px] font-bold">
-          {location.length > 18 ? `${location.slice(0, 18)}..` : location}
+          {location.length > 15 ? `${location.slice(0, 15)}..` : location}
         </Text>
       </View>
     </TouchableOpacity>
